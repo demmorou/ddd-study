@@ -9,7 +9,7 @@ class Email {
     this.email = email;
   }
 
-  static isValid(email: string): boolean {
+  static validate(email: string): boolean {
     if (!email || email.trim().length > 255) return false;
 
     const emailRegex =
@@ -29,7 +29,7 @@ class Email {
   }
 
   static create(email: string): Email | Error {
-    if (!this.isValid(email)) throw new Error('Invalid email');
+    if (!this.validate(email)) throw new Error('Invalid email');
 
     const formattedEmail = this.format(email);
 

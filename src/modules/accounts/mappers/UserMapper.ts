@@ -1,7 +1,7 @@
 import { TypeormUser } from '~infra/database/typeorm/entities/TypeormUser';
 
-import { Email } from '../domain/Email';
-import { User } from '../domain/User';
+import { Email } from '../domain/user/Email';
+import { User } from '../domain/user/User';
 
 class UserMapper {
   static toDomain(row: TypeormUser): User {

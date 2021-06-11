@@ -15,7 +15,7 @@ class User extends Entity<IUserProps> {
     super(props, id);
   }
 
-  static create(props: IUserProps, id?: string): Error | User {
+  static create(props: IUserProps, id?: string): User {
     const user = new User(props, id);
 
     return user;
