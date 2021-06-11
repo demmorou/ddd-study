@@ -21,6 +21,8 @@
       "prettier"
   ],
   "rules": {
+      "@typescript-eslint/explicit-module-boundary-types": "off",
+      "no-underscore-dangle": "off",
       "prettier/prettier": "error",
       "camelcase": "off",
       "import/no-unresolved": "error",
