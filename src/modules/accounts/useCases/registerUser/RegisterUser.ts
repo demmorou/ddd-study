@@ -30,6 +30,12 @@ class RegisterUser {
 
     const user = userOrError;
 
+    const userAlredadyExists = await this.usersRepository.findByEmail(
+      user.email.value,
+    );
+
+    if (userAlredadyExists) throw new Error('Account already exists');
+
     await this.usersRepository.create(user);
 
     return userOrError;

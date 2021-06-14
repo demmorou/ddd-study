@@ -18,6 +18,12 @@ class MemoryUsersRepository implements IUsersRepository {
 
     this.users[userIndex] = user;
   }
+
+  public async findByEmail(email: string): Promise<User> {
+    const user = this.users.find((user) => user.email.value === email);
+
+    return user;
+  }
 }
 
 export { MemoryUsersRepository };
