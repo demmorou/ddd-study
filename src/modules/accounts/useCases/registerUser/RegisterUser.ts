@@ -1,9 +1,9 @@
-import { Email } from '~modules/accounts/domain/user/Email';
-import { User } from '~modules/accounts/domain/user/User';
+import { Email, Name, User } from '~modules/accounts/domain/user';
 import { IUsersRepository } from '~modules/accounts/repositories/IUsersRepositories';
 
 type IRegisterUserRequest = {
   email: string;
+  name: string;
 };
 
 type IRegisterUserResponse = User;
@@ -13,15 +13,22 @@ class RegisterUser {
 
   public async execute({
     email,
+    name,
   }: IRegisterUserRequest): Promise<IRegisterUserResponse> {
     const emailOrError = Email.create(email);
+    const nameOrError = Name.create(name);
 
     if (emailOrError instanceof Error) {
       throw new Error('Invalid input email');
     }
 
+    if (nameOrError instanceof Error) {
+      throw new Error('Invalid input email');
+    }
+
     const userOrError = User.create({
       email: emailOrError,
+      name: nameOrError,
     });
 
     if (!userOrError) {

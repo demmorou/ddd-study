@@ -1,8 +1,9 @@
 import { Entity } from '~core/domain/Entity';
 
-import { Email } from './Email';
+import { Email, Name } from '.';
 
 interface IUserProps {
+  name: Name;
   email: Email;
 }
 
