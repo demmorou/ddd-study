@@ -7,6 +7,9 @@ class TypeormUser {
 
   @Column({ unique: true })
   email: string;
+
+  @Column()
+  name: string;
 }
 
 export { TypeormUser };
